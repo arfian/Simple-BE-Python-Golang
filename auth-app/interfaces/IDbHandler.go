@@ -2,7 +2,6 @@ package interfaces
 
 import (
 	"database/sql"
-	"github.com/irahardianto/service-pattern-go/interfaces"
 )
 
 type IDbHandler interface {

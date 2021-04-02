@@ -2,7 +2,7 @@ package main
 
 import (
 	"net/http"
-	routes "efishery-task/auth-app/routes"
+	routes "efishery-task/auth-app/routers"
 )
 
 func main() {

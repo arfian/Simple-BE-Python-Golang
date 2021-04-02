@@ -3,7 +3,7 @@ package helpers
 import (
 	"database/sql"
 	"fmt"
-	"github.com/irahardianto/service-pattern-go/interfaces"
+	"efishery-task/auth-app/interfaces"
 )
 
 type SQLiteHandler struct {

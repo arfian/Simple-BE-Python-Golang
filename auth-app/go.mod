@@ -1,4 +1,4 @@
-module auth-app
+module efishery-task/auth-app
 
 go 1.16
 
