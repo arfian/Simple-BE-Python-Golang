@@ -10,8 +10,8 @@ type AuthRepository struct {
 	interfaces.IDbHandler
 }
 
-func (repository *AuthRepository) CheckUsername(username string) (bool, error) {
-	row, err :=repository.Query(fmt.Sprintf("SELECT * FROM users WHERE username = '%s'", username))
+func (repository *AuthRepository) CheckUsername(username string, phone string) (bool, error) {
+	row, err :=repository.Query(fmt.Sprintf("SELECT * FROM users WHERE username = '%s' AND phone = '%s'", username, phone))
 	if err != nil {
 		fmt.Println(err)
 		return true, err

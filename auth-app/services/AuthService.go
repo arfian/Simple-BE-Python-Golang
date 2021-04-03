@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"efishery-task/auth-app/interfaces"
 	"efishery-task/auth-app/models"
-	"time"
 	"errors"
 )
 
@@ -15,12 +14,12 @@ type AuthService struct {
 
 func (service *AuthService) RegisterUser(phone string, name string, role string) (*models.UserModel, error) {
 	username := service.Helper.GenerateUsername(name)
-	checkUser, err:= service.Repo.CheckUsername(username)
+	checkUser, err:= service.Repo.CheckUsername(username, phone)
 	if err != nil {
 		return nil, err
 	}
 	if checkUser {
-		response := fmt.Sprintf("Maaf nama %s sudah teregister dengan username %s, silakan daftar kembali dengan nama yang berbeda", name, username)
+		response := fmt.Sprintf("Maaf nama %s sudah teregister dengan username %s dan phone %s, silakan daftar kembali dengan nama yang berbeda", name, username, phone)
 		return nil, errors.New(response)
 	}
 
@@ -30,8 +29,6 @@ func (service *AuthService) RegisterUser(phone string, name string, role string)
 		Role: role,
 		Username: username,
 		Password: service.Helper.GeneratePass(),
-		CreatedAt: time.Now(),
-		UpdatedAt: time.Now(),
 	}
 	user, err := service.Repo.SaveUser(u)
 

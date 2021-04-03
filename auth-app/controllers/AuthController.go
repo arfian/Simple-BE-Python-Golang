@@ -92,24 +92,18 @@ func (controller *AuthController) CheckJwt(w http.ResponseWriter, r *http.Reques
 	token, err := jwt.ParseWithClaims(jwtString, &claims, func(token *jwt.Token) (interface{}, error) {
 		return []byte(mySigningKey), nil
 	})
-	if err != nil {
-		json.NewEncoder(w).Encode(transformers.ResData{
-			ErrorMessage: err.Error(),
-			IsError: true,
-		})
-	}
 
-	if !token.Valid {
+	if !token.Valid || err != nil {
 		json.NewEncoder(w).Encode(transformers.ResData{
 			ErrorMessage: "Token tidak valid",
 			IsError: true,
 		})
+	} else {
+		data := claims["data"].(map[string]interface{})
+		json.NewEncoder(w).Encode(transformers.ResData{
+			ErrorMessage: "",
+			IsError: false,
+			Data: data,
+		})
 	}
-	
-	data := claims["data"].(map[string]interface{})
-	json.NewEncoder(w).Encode(transformers.ResData{
-		ErrorMessage: "",
-		IsError: false,
-		Data: data,
-	})
 }
