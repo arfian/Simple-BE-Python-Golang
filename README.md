@@ -91,3 +91,13 @@ run application
 ```sh  
 $ make run  
 ```  
+
+docker build application
+```sh
+$ make docker-build
+```
+
+docker run application
+```sh
+$ make docker-run
+```
