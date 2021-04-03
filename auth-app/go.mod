@@ -3,6 +3,7 @@ module efishery-task/auth-app
 go 1.16
 
 require (
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible // indirect
 	github.com/go-chi/chi/v5 v5.0.2
 	github.com/mattn/go-sqlite3 v1.14.6 // indirect
 	github.com/newm4n/goornogo v1.0.2 // indirect

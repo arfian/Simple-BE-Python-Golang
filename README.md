@@ -17,6 +17,7 @@ $ go get github.com/go-chi/chi/v5
 $	go get github.com/stretchr/testify
 $	go get github.com/newm4n/goornogo
 $	go get github.com/mattn/go-sqlite3
+$ go get github.com/dgrijalva/jwt-go
 ```
 	
 

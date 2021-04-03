@@ -6,11 +6,16 @@ import (
 	"time"
 	"efishery-task/auth-app/interfaces"
 	"efishery-task/auth-app/transformers"
+	jwt "github.com/dgrijalva/jwt-go"
 )
 
 type AuthController struct {
 	interfaces.IAuthService
 }
+
+const (
+    mySigningKey = "efishery123"
+)
 
 func (controller *AuthController) Register(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
@@ -44,6 +49,20 @@ func (controller *AuthController) Login(w http.ResponseWriter, r *http.Request) 
 			IsError: true,
 		})
 	} else {
+		token := jwt.New(jwt.GetSigningMethod("HS256"))
+		claims := token.Claims.(jwt.MapClaims)
+		claims["phone"] = user.Phone
+		claims["name"] = user.Name
+		claims["role"] = user.Role
+		claims["username"] = user.Username
+		claims["exp"] = time.Now().Add(time.Hour * 24).Unix()
+		tokenString, err := token.SignedString([]byte(mySigningKey))
+		if err != nil {
+			json.NewEncoder(w).Encode(transformers.ResData{
+				ErrorMessage: err.Error(),
+				IsError: true,
+			})
+		}
 		json.NewEncoder(w).Encode(transformers.ResData{
 			ErrorMessage: "",
 			IsError: false,
@@ -53,7 +72,7 @@ func (controller *AuthController) Login(w http.ResponseWriter, r *http.Request) 
 				Role: user.Role,
 				Username: user.Username,
 				Timestamp: user.CreatedAt.Format(time.RFC850),
-				BarerToken: "",
+				BarerToken: tokenString,
 			},
 		})
 	}

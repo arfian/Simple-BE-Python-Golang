@@ -39,7 +39,6 @@ func (repository *AuthRepository) GetLogin(phone string, password string) (model
 	var user models.UserModel
 	for row.Next() {
 		row.Scan(&user.Name, &user.Phone, &user.Role, &user.Username, &user.CreatedAt)
-		fmt.Println(user.Name)
 	}
 
 	return user, nil
