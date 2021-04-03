@@ -21,6 +21,7 @@ func InitRouter() *chi.Mux {
 	auth := &controllers.AuthController{authService}
 
 	r.Route("/auth", func(r chi.Router) {
+		r.Get("/checkjwt", auth.CheckJwt)
 		r.Post("/register", auth.Register)
 		r.Post("/login", auth.Login)
 	})
