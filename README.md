@@ -6,7 +6,7 @@
   - Python 3.7 or higher
   - Extract zip file and move to folder src project Go
 
-### Case 1 : Auth App (Golang)
+## Case 1 : Auth App (Golang)
 
 Go to the directory auth-app for setup and run app
 ```sh
@@ -67,8 +67,27 @@ docker run application
 $ make docker-run
 ```
 
-### Case 2 : Fetch App (Python)
+## Case 2 : Fetch App (Python)
 Go to the directory fetch-app for setup and run app
 ```sh
 $ cd fetch-app
 ```
+
+### Installation
+
+Install the dependencies. 
+```sh
+$ pip install -r requirements.txt
+```
+
+### Makefile  
+
+unit test code  
+```sh  
+$ make test  
+```  
+
+run application  
+```sh  
+$ make run  
+```  
