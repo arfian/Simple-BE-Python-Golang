@@ -2,11 +2,13 @@
 
 # Requirement
 
-  - Golang 1.16.2
+  - Golang 1.16.2 or higher
+  - Python 3.7 or higher
+  - Extract zip file and move to folder src project Go
 
-### Installation Golang
+### Case 1 : Auth App (Golang)
 
-Change Directory
+Go to the directory auth-app for setup and run app
 ```sh
 $ cd auth-app
 ```
@@ -14,15 +16,59 @@ $ cd auth-app
 Setup dependencies
 ```sh
 $ go get github.com/go-chi/chi/v5
-$	go get github.com/stretchr/testify
-$	go get github.com/newm4n/goornogo
-$	go get github.com/mattn/go-sqlite3
+$ go get github.com/stretchr/testify
+$ go get github.com/newm4n/goornogo
+$ go get github.com/mattn/go-sqlite3
 $ go get github.com/dgrijalva/jwt-go
 ```
 	
 
-Setup sqlite data structure
+Setup sqlite data structure or Reset data sqlite
 ```sh
 $ sqlite3 databases/efishery.db < setup.sql 
 ```
 
+### Usage
+
+Run application
+```sh
+$ go run main.py
+```
+
+### Makefile
+
+build application
+```sh
+$ make build
+```
+
+run application
+```sh
+$ make run
+```
+
+unit test code
+```sh
+$ make test
+```
+
+clean go
+```sh
+$ make clean
+```
+
+docker build application
+```sh
+$ make docker-build
+```
+
+docker run application
+```sh
+$ make docker-run
+```
+
+### Case 2 : Fetch App (Python)
+Go to the directory fetch-app for setup and run app
+```sh
+$ cd fetch-app
+```
