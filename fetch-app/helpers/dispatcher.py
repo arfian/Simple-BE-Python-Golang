@@ -3,12 +3,22 @@ import config
 import logging
 import json
 from datetime import datetime
+import jwt
 
 def delist_arguments(args):
     for arg, value in args.items():
         if len(value) == 1:
             args[arg] = value[0]
     return args
+
+def checktoken(self):
+    try:
+        data = self.request.headers.get('Authorization')
+        token = str.replace(str(data), 'Bearer ', '')
+        return {'data': jwt.decode(token, "efishery123", algorithms=["HS256"]), 'code': 200}
+    except Exception as exc:
+        res = {'message': 'Token is missing', 'code': 401}
+        return res
 
 class MethodDispatcher(tornado.web.RequestHandler):
     def _dispatch(self):
@@ -40,9 +50,6 @@ class MethodDispatcher(tornado.web.RequestHandler):
 
     def post(self):
         return self._dispatch()
-
-    def get_current_user(self):
-        return self.get_secure_cookie("jadipintarsip")
 
     # Jika tidak dibutuhkan comment saja ini
     def prepare(self):
