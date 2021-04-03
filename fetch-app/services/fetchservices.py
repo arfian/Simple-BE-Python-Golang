@@ -20,7 +20,6 @@ class FetchService(ifetchservice.IFetchService):
             conversion = config.app['cache']['convert']
             logging.info("no cache")
         except Exception as exc:
-            logging.info('request conversi')
             resConvert = self.repo.fetchConversion()
             config.app['cache']['convert'] = resConvert["USD_IDR"]
             conversion = resConvert["USD_IDR"]
@@ -54,7 +53,6 @@ class FetchService(ifetchservice.IFetchService):
         weekdata = []
         for name, group in gr:
             weekdata.append({'week': name, 'count': len(list(group))})
-        logging.info(weekdata)
         weeklengths = [x['count'] for x in weekdata]
 
         resdata = {

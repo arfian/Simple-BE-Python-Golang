@@ -26,3 +26,13 @@ class FetchController(dispatcher.MethodDispatcher):
 			self.write({'code': 200, 'message': 'Berhasil', 'data': resData})
 		else:
 			self.write(checkdata)
+
+	def checkjwt(self):
+		checkdata = dispatcher.checktoken(self)
+		if checkdata["code"] == 200:
+			repo = fetchrepository.FetchRepo()
+			services = fetchservices.FetchService(repo)
+			resData = services.calAggregate()
+			self.write(checkdata)
+		else:
+			self.write(checkdata)
