@@ -15,7 +15,10 @@ type AuthService struct {
 
 func (service *AuthService) RegisterUser(phone string, name string, role string) (*models.UserModel, error) {
 	username := service.Helper.GenerateUsername(name)
-	checkUser, _:= service.Repo.CheckUsername(username)
+	checkUser, err:= service.Repo.CheckUsername(username)
+	if err != nil {
+		return nil, err
+	}
 	if checkUser {
 		response := fmt.Sprintf("Maaf nama %s sudah teregister dengan username %s, silakan daftar kembali dengan nama yang berbeda", name, username)
 		return nil, errors.New(response)
@@ -30,14 +33,23 @@ func (service *AuthService) RegisterUser(phone string, name string, role string)
 		CreatedAt: time.Now(),
 		UpdatedAt: time.Now(),
 	}
-	fmt.Println("=========== checkUser ========")
-	fmt.Println(checkUser)
 	user, err := service.Repo.SaveUser(u)
 
 	if err != nil {
-		fmt.Println(err)
 		return nil, err
 	}
 
+	return user, nil
+}
+
+func (service *AuthService) CheckLogin(phone string, password string) (*models.UserModel, error) {
+	user, err:= service.Repo.GetLogin(phone, password)
+	if err != nil {
+		return nil, err
+	}
+	
+	if user.Phone == "" {
+		return nil, errors.New("Maaf phone number dan password tidak cocok")
+	}
 	return &user, nil
 }

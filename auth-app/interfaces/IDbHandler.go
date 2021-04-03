@@ -5,12 +5,7 @@ import (
 )
 
 type IDbHandler interface {
-	Prepare(statement string) (*sql.Stmt, error)
-	Query(statement string) (IRow, error)
+	Prepare(statement string, field ...interface{}) (*sql.Stmt, error)
+	Query(statement string) (*sql.Rows, error)
 	CloseDb()
-}
-
-type IRow interface {
-	Scan(dest ...interface{}) error
-	Next() bool
 }
