@@ -1,0 +1,198 @@
+{
+	"info": {
+		"_postman_id": "032096f5-5e10-47f5-be29-40a925bb84c9",
+		"name": "efishery",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:2001/auth/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "phone",
+							"value": "12345678",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "arfian bagus",
+							"type": "text"
+						},
+						{
+							"key": "role",
+							"value": "admin",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:2001/auth/register",
+					"host": [
+						"localhost"
+					],
+					"port": "2001",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:2001/auth/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "phone",
+							"value": "12345678",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "PpKs",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:2001/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "2001",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:2001/auth/checkjwt",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJhcmZpYW4gYmFndXMiLCJwaG9uZSI6IjEyMzQ1Njc4Iiwicm9sZSI6ImFkbWluIiwidGltZXN0YW1wIjoiU2F0dXJkYXksIDAzLUFwci0yMSAwNToyODozNyBVVEMiLCJ1c2VybmFtZSI6ImFyZmlhbmJhZ3VzIn0sImV4cCI6MTYxNzUxODg3M30.VtQDT43beCbVP2QMPGgBcPRIIAWl7dQnn3xRCYmNxNM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:2001/auth/checkjwt",
+					"host": [
+						"localhost"
+					],
+					"port": "2001",
+					"path": [
+						"auth",
+						"checkjwt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:2002/fetch/getprice",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJhcmZpYW4gYmFndXMgYWMiLCJwaG9uZSI6IjEyMzQ1Njc4MjMiLCJyb2xlIjoiYWRtaW4iLCJ0aW1lc3RhbXAiOiJTYXR1cmRheSwgMDMtQXByLTIxIDA4OjI4OjA1IFVUQyIsInVzZXJuYW1lIjoiYXJmaWFuYmFndXNhYyJ9LCJleHAiOjE2MTc2OTc3MDV9.CV9Jl9TSN4XWptaBx6PKiFqQjQ7nN9GaIwbZbYwoYvU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:2002/fetch/getprice",
+					"host": [
+						"localhost"
+					],
+					"port": "2002",
+					"path": [
+						"fetch",
+						"getprice"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:2002/fetch/getaggregate",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJhcmZpYW4gYmFndXMgYWMiLCJwaG9uZSI6IjEyMzQ1Njc4MjMiLCJyb2xlIjoiYWRtaW4iLCJ0aW1lc3RhbXAiOiJTYXR1cmRheSwgMDMtQXByLTIxIDA4OjI4OjA1IFVUQyIsInVzZXJuYW1lIjoiYXJmaWFuYmFndXNhYyJ9LCJleHAiOjE2MTc2OTc3MDV9.CV9Jl9TSN4XWptaBx6PKiFqQjQ7nN9GaIwbZbYwoYvU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:2002/fetch/getaggregate",
+					"host": [
+						"localhost"
+					],
+					"port": "2002",
+					"path": [
+						"fetch",
+						"getaggregate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:2002/fetch/checkjwt",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJhcmZpYW4gYmFndXMgYWMiLCJwaG9uZSI6IjEyMzQ1Njc4MjMiLCJyb2xlIjoiYWRtaW4iLCJ0aW1lc3RhbXAiOiJTYXR1cmRheSwgMDMtQXByLTIxIDA4OjI4OjA1IFVUQyIsInVzZXJuYW1lIjoiYXJmaWFuYmFndXNhYyJ9LCJleHAiOjE2MTc2OTc3MDV9.CV9Jl9TSN4XWptaBx6PKiFqQjQ7nN9GaIwbZbYwoYvU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:2002/fetch/checkjwt",
+					"host": [
+						"localhost"
+					],
+					"port": "2002",
+					"path": [
+						"fetch",
+						"checkjwt"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
