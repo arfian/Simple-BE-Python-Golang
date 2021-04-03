@@ -6,5 +6,5 @@ import (
 
 type IAuthRepository interface {
 	SaveUser(models.UserModel) (models.UserModel, error)
-	GetUsername(username string) (*models.UserModel, error)
+	CheckUsername(username string) (bool, error)
 }

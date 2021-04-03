@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"efishery-task/auth-app/interfaces"
+	_ "github.com/mattn/go-sqlite3"
 )
 
 type SQLiteHandler struct {
@@ -11,17 +12,21 @@ type SQLiteHandler struct {
 }
 
 func getDb() (*sql.DB, error){
-	sqlConn, _ := sql.Open("sqlite3", "../databases/efishery.db")
-	return sqlConn
+	sqlConn, err := sql.Open("sqlite3", "../databases/efishery.db")
+
+	if err != nil {
+		fmt.Println(err)
+	}
+	return sqlConn, nil
 }
 
 func (handler *SQLiteHandler) Prepare(statement string) (*sql.Stmt, error) {
-	handler.Conn, err := getDb()
+	conn, err := getDb()
+	handler.Conn = conn
 	if err != nil {
 		fmt.Println(err)
-		return new(SqliteRow),err
+		return nil,err
 	}
-	defer handler.Conn.Close()
 	smtm, err :=  handler.Conn.Prepare(statement)
 	if err != nil {
 		fmt.Println(err)
@@ -31,12 +36,13 @@ func (handler *SQLiteHandler) Prepare(statement string) (*sql.Stmt, error) {
 }
 
 func (handler *SQLiteHandler) Query(statement string) (interfaces.IRow, error) {
-	handler.Conn, err := getDb()
+	conn, err := getDb()
+	handler.Conn = conn
+	defer handler.Conn.Close()
 	if err != nil {
 		fmt.Println(err)
 		return new(SqliteRow),err
 	}
-	defer handler.Conn.Close()
 
 	rows, err := handler.Conn.Query(statement)
 	if err != nil {
@@ -47,6 +53,10 @@ func (handler *SQLiteHandler) Query(statement string) (interfaces.IRow, error) {
 	row.Rows = rows
 
 	return row, nil
+}
+
+func (handler *SQLiteHandler) CloseDb() {
+	defer handler.Conn.Close()
 }
 
 type SqliteRow struct {

@@ -6,13 +6,18 @@ import (
 	"efishery-task/auth-app/controllers"
 	"efishery-task/auth-app/services"
 	"efishery-task/auth-app/repositories"
+	"efishery-task/auth-app/helpers"
 )
 
 func InitRouter() *chi.Mux {
 	r := chi.NewRouter()
 	r.Use(middleware.Logger)
 
-	authService := &services.AuthService{&repositories.AuthRepository{}}
+	authRepository := &repositories.AuthRepository{&helpers.SQLiteHandler{}}
+	authService := &services.AuthService{
+		Repo: authRepository,
+		Helper: &helpers.HelperFunc{},
+	}
 	auth := &controllers.AuthController{authService}
 
 	r.Route("/auth", func(r chi.Router) {

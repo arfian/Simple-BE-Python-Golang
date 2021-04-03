@@ -7,6 +7,7 @@ import (
 type IDbHandler interface {
 	Prepare(statement string) (*sql.Stmt, error)
 	Query(statement string) (IRow, error)
+	CloseDb()
 }
 
 type IRow interface {

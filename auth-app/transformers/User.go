@@ -5,3 +5,9 @@ type Register struct {
 	Username	string `json:"username"`
 	Password	string `json:"password"`
 }
+
+type ResData struct {
+	Data interface{} `json:"data"`
+	ErrorMessage string `json:"error-message"`
+	IsError bool `json:"is-error"`
+}
