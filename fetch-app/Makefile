@@ -1,3 +1,5 @@
+.PHONY: all test clean
+
 test:
 	coverage run -m unittest discover test/ "*_test.py"
 
