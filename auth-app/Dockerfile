@@ -4,6 +4,10 @@ RUN mkdir /app
 
 ADD . /app
 
+RUN apk add --no-cache git
+RUN apk add --no-cache sqlite-libs sqlite-dev
+RUN apk add --no-cache build-base
+
 WORKDIR /app
 
 RUN go mod download

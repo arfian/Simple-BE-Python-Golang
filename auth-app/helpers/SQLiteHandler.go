@@ -11,7 +11,7 @@ type SQLiteHandler struct {
 }
 
 func getDb() (*sql.DB, error){
-	sqlConn, err := sql.Open("sqlite3", "../databases/efishery.db")
+	sqlConn, err := sql.Open("sqlite3", "./databases/efishery.db")
 
 	if err != nil {
 		fmt.Println(err)

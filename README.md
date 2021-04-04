@@ -21,12 +21,6 @@ $ go get github.com/newm4n/goornogo
 $ go get github.com/mattn/go-sqlite3
 $ go get github.com/dgrijalva/jwt-go
 ```
-	
-
-Setup sqlite data structure or Reset data sqlite
-```sh
-$ sqlite3 databases/efishery.db < setup.sql 
-```
 
 ### Usage
 
