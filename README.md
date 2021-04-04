@@ -65,6 +65,23 @@ docker run application
 $ make docker-run
 ```
 
+### Check list example access API with curl
+
+API register user
+```sh
+$ curl -d "phone=12345678&name=arfian&role=admin" -H "Content-Type: application/x-www-form-urlencoded" -X POST localhost:2001/auth/register
+```
+
+API login
+```sh
+$ curl -d "phone=12345678&password=LiY4" -H "Content-Type: application/x-www-form-urlencoded" -X POST localhost:2001/auth/login
+```
+
+API check jwt
+```sh
+$ curl -H "Content-Type: application/x-www-form-urlencoded" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJhcmZpYW4iLCJwaG9uZSI6IjEyMzQ1Njc4Iiwicm9sZSI6ImFkbWluIiwidGltZXN0YW1wIjoiU3VuZGF5LCAwNC1BcHItMjEgMDI6MjM6NTAgVVRDIiwidXNlcm5hbWUiOiJhcmZpYW4ifSwiZXhwIjoxNjE3NzYyMzE4fQ.qV1tkmnj_-QK3ZrWWHdMbXihq-eTtIYPHiIGFtQvckA" -X GET localhost:2001/auth/checkjwt
+```
+
 ## Case 2 : Fetch App (Python)
 Go to the directory fetch-app for setup and run app
 ```sh
@@ -98,4 +115,21 @@ $ make docker-build
 docker run application
 ```sh
 $ make docker-run
+```
+
+### Check list example access API with curl
+
+API get price USD
+```sh
+$ curl -H "Content-Type: application/x-www-form-urlencoded" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJhcmZpYW4iLCJwaG9uZSI6IjEyMzQ1Njc4Iiwicm9sZSI6ImFkbWluIiwidGltZXN0YW1wIjoiU3VuZGF5LCAwNC1BcHItMjEgMDI6MjM6NTAgVVRDIiwidXNlcm5hbWUiOiJhcmZpYW4ifSwiZXhwIjoxNjE3NzYyMzE4fQ.qV1tkmnj_-QK3ZrWWHdMbXihq-eTtIYPHiIGFtQvckA" -X GET localhost:2002/fetch/getprice
+```
+
+API Aggregate data
+```sh
+$ curl -H "Content-Type: application/x-www-form-urlencoded" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJhcmZpYW4iLCJwaG9uZSI6IjEyMzQ1Njc4Iiwicm9sZSI6ImFkbWluIiwidGltZXN0YW1wIjoiU3VuZGF5LCAwNC1BcHItMjEgMDI6MjM6NTAgVVRDIiwidXNlcm5hbWUiOiJhcmZpYW4ifSwiZXhwIjoxNjE3NzYyMzE4fQ.qV1tkmnj_-QK3ZrWWHdMbXihq-eTtIYPHiIGFtQvckA" -X GET localhost:2002/fetch/getaggregate
+```
+
+API check jwt
+```sh
+$ curl -H "Content-Type: application/x-www-form-urlencoded" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJhcmZpYW4iLCJwaG9uZSI6IjEyMzQ1Njc4Iiwicm9sZSI6ImFkbWluIiwidGltZXN0YW1wIjoiU3VuZGF5LCAwNC1BcHItMjEgMDI6MjM6NTAgVVRDIiwidXNlcm5hbWUiOiJhcmZpYW4ifSwiZXhwIjoxNjE3NzYyMzE4fQ.qV1tkmnj_-QK3ZrWWHdMbXihq-eTtIYPHiIGFtQvckA" -X GET localhost:2002/fetch/checkjwt
 ```
