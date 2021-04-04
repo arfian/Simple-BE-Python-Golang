@@ -6,6 +6,10 @@
   - Python 3.7 or higher
   - Extract zip file and move to folder src project Go
 
+## Postman
+
+If you want to check with Postman, you can import .json in the folder postman
+
 ## Case 1 : Auth App (Golang)
 
 Go to the directory auth-app for setup and run app
