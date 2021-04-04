@@ -15,12 +15,12 @@
 					"urlencoded": [
 						{
 							"key": "phone",
-							"value": "12345678",
+							"value": "1234567866",
 							"type": "text"
 						},
 						{
 							"key": "name",
-							"value": "arfian bagus",
+							"value": "arfian bagus asd",
 							"type": "text"
 						},
 						{
@@ -31,9 +31,12 @@
 					]
 				},
 				"url": {
-					"raw": "localhost:2001/auth/register",
+					"raw": "103.56.207.67:2001/auth/register",
 					"host": [
-						"localhost"
+						"103",
+						"56",
+						"207",
+						"67"
 					],
 					"port": "2001",
 					"path": [
@@ -54,20 +57,23 @@
 					"urlencoded": [
 						{
 							"key": "phone",
-							"value": "12345678",
+							"value": "1234567866",
 							"type": "text"
 						},
 						{
 							"key": "password",
-							"value": "PpKs",
+							"value": "jiaZ",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "localhost:2001/auth/login",
+					"raw": "103.56.207.67:2001/auth/login",
 					"host": [
-						"localhost"
+						"103",
+						"56",
+						"207",
+						"67"
 					],
 					"port": "2001",
 					"path": [
@@ -86,7 +92,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJhcmZpYW4gYmFndXMiLCJwaG9uZSI6IjEyMzQ1Njc4Iiwicm9sZSI6ImFkbWluIiwidGltZXN0YW1wIjoiU2F0dXJkYXksIDAzLUFwci0yMSAwNToyODozNyBVVEMiLCJ1c2VybmFtZSI6ImFyZmlhbmJhZ3VzIn0sImV4cCI6MTYxNzUxODg3M30.VtQDT43beCbVP2QMPGgBcPRIIAWl7dQnn3xRCYmNxNM",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJhcmZpYW4gYmFndXMgYXNkIiwicGhvbmUiOiIxMjM0NTY3ODY2Iiwicm9sZSI6ImFkbWluIiwidGltZXN0YW1wIjoiU3VuZGF5LCAwNC1BcHItMjEgMDM6NTA6MjggVVRDIiwidXNlcm5hbWUiOiJhcmZpYW5iYWd1c2FzZCJ9LCJleHAiOjE2MTc3Njc0NDB9.aH_8FSMH6e42AC5GbyuVNXlv_Wm3-RvSHWhtM9b9XM4",
 							"type": "string"
 						}
 					]
@@ -94,9 +100,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:2001/auth/checkjwt",
+					"raw": "103.56.207.67:2001/auth/checkjwt",
 					"host": [
-						"localhost"
+						"103",
+						"56",
+						"207",
+						"67"
 					],
 					"port": "2001",
 					"path": [
@@ -115,7 +124,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJhcmZpYW4gYmFndXMgYWMiLCJwaG9uZSI6IjEyMzQ1Njc4MjMiLCJyb2xlIjoiYWRtaW4iLCJ0aW1lc3RhbXAiOiJTYXR1cmRheSwgMDMtQXByLTIxIDA4OjI4OjA1IFVUQyIsInVzZXJuYW1lIjoiYXJmaWFuYmFndXNhYyJ9LCJleHAiOjE2MTc2OTc3MDV9.CV9Jl9TSN4XWptaBx6PKiFqQjQ7nN9GaIwbZbYwoYvU",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJhcmZpYW4gYmFndXMgYXNkIiwicGhvbmUiOiIxMjM0NTY3ODY2Iiwicm9sZSI6ImFkbWluIiwidGltZXN0YW1wIjoiU3VuZGF5LCAwNC1BcHItMjEgMDM6NTA6MjggVVRDIiwidXNlcm5hbWUiOiJhcmZpYW5iYWd1c2FzZCJ9LCJleHAiOjE2MTc3Njc0NDB9.aH_8FSMH6e42AC5GbyuVNXlv_Wm3-RvSHWhtM9b9XM4",
 							"type": "string"
 						}
 					]
@@ -123,9 +132,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:2002/fetch/getprice",
+					"raw": "103.56.207.67:2002/fetch/getprice",
 					"host": [
-						"localhost"
+						"103",
+						"56",
+						"207",
+						"67"
 					],
 					"port": "2002",
 					"path": [
@@ -144,7 +156,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJhcmZpYW4gYmFndXMgYWMiLCJwaG9uZSI6IjEyMzQ1Njc4MjMiLCJyb2xlIjoiYWRtaW4iLCJ0aW1lc3RhbXAiOiJTYXR1cmRheSwgMDMtQXByLTIxIDA4OjI4OjA1IFVUQyIsInVzZXJuYW1lIjoiYXJmaWFuYmFndXNhYyJ9LCJleHAiOjE2MTc2OTc3MDV9.CV9Jl9TSN4XWptaBx6PKiFqQjQ7nN9GaIwbZbYwoYvU",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJhcmZpYW4gYmFndXMgYXNkIiwicGhvbmUiOiIxMjM0NTY3ODY2Iiwicm9sZSI6ImFkbWluIiwidGltZXN0YW1wIjoiU3VuZGF5LCAwNC1BcHItMjEgMDM6NTA6MjggVVRDIiwidXNlcm5hbWUiOiJhcmZpYW5iYWd1c2FzZCJ9LCJleHAiOjE2MTc3Njc0NDB9.aH_8FSMH6e42AC5GbyuVNXlv_Wm3-RvSHWhtM9b9XM4",
 							"type": "string"
 						}
 					]
@@ -173,7 +185,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJhcmZpYW4gYmFndXMgYWMiLCJwaG9uZSI6IjEyMzQ1Njc4MjMiLCJyb2xlIjoiYWRtaW4iLCJ0aW1lc3RhbXAiOiJTYXR1cmRheSwgMDMtQXByLTIxIDA4OjI4OjA1IFVUQyIsInVzZXJuYW1lIjoiYXJmaWFuYmFndXNhYyJ9LCJleHAiOjE2MTc2OTc3MDV9.CV9Jl9TSN4XWptaBx6PKiFqQjQ7nN9GaIwbZbYwoYvU",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJhcmZpYW4gYmFndXMgYXNkIiwicGhvbmUiOiIxMjM0NTY3ODY2Iiwicm9sZSI6ImFkbWluIiwidGltZXN0YW1wIjoiU3VuZGF5LCAwNC1BcHItMjEgMDM6NTA6MjggVVRDIiwidXNlcm5hbWUiOiJhcmZpYW5iYWd1c2FzZCJ9LCJleHAiOjE2MTc3Njc0NDB9.aH_8FSMH6e42AC5GbyuVNXlv_Wm3-RvSHWhtM9b9XM4",
 							"type": "string"
 						}
 					]
@@ -181,9 +193,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:2002/fetch/checkjwt",
+					"raw": "103.56.207.67:2002/fetch/checkjwt",
 					"host": [
-						"localhost"
+						"103",
+						"56",
+						"207",
+						"67"
 					],
 					"port": "2002",
 					"path": [

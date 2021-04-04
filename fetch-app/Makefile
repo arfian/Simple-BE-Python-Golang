@@ -7,7 +7,7 @@ coverage:
 	coverage report -m
 
 run:
-	python main.py
+	python3 main.py
 
 docker-build:
 	docker build -t fetch-app -f Dockerfile .

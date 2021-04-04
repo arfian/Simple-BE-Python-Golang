@@ -6,6 +6,15 @@
   - Python 3.7 or higher
   - Extract zip file and move to folder src project Go
 
+### Note
+
+If run auth-app golang error "gcc executable" you are running Ubuntu do:
+```sh
+$ apt-get install build-essential
+```
+
+If you want check deploy host you can change url API with 103.56.207.67
+
 ## Postman
 
 If you want to check with Postman, you can import .json in the folder postman
@@ -69,17 +78,17 @@ $ make docker-run
 
 API register user
 ```sh
-$ curl -d "phone=12345678&name=arfian&role=admin" -H "Content-Type: application/x-www-form-urlencoded" -X POST localhost:2001/auth/register
+$ curl -d "phone=12345678&name=arfian&role=admin" -H "Content-Type: application/x-www-form-urlencoded" -X POST 103.56.207.67:2001/auth/register
 ```
 
 API login
 ```sh
-$ curl -d "phone=12345678&password=LiY4" -H "Content-Type: application/x-www-form-urlencoded" -X POST localhost:2001/auth/login
+$ curl -d "phone=12345678&password=LiY4" -H "Content-Type: application/x-www-form-urlencoded" -X POST 103.56.207.67:2001/auth/login
 ```
 
 API check jwt
 ```sh
-$ curl -H "Content-Type: application/x-www-form-urlencoded" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJhcmZpYW4iLCJwaG9uZSI6IjEyMzQ1Njc4Iiwicm9sZSI6ImFkbWluIiwidGltZXN0YW1wIjoiU3VuZGF5LCAwNC1BcHItMjEgMDI6MjM6NTAgVVRDIiwidXNlcm5hbWUiOiJhcmZpYW4ifSwiZXhwIjoxNjE3NzYyMzE4fQ.qV1tkmnj_-QK3ZrWWHdMbXihq-eTtIYPHiIGFtQvckA" -X GET localhost:2001/auth/checkjwt
+$ curl -H "Content-Type: application/x-www-form-urlencoded" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJhcmZpYW4iLCJwaG9uZSI6IjEyMzQ1Njc4Iiwicm9sZSI6ImFkbWluIiwidGltZXN0YW1wIjoiU3VuZGF5LCAwNC1BcHItMjEgMDI6MjM6NTAgVVRDIiwidXNlcm5hbWUiOiJhcmZpYW4ifSwiZXhwIjoxNjE3NzYyMzE4fQ.qV1tkmnj_-QK3ZrWWHdMbXihq-eTtIYPHiIGFtQvckA" -X GET 103.56.207.67:2001/auth/checkjwt
 ```
 
 ## Case 2 : Fetch App (Python)
@@ -92,7 +101,7 @@ $ cd fetch-app
 
 Install the dependencies. 
 ```sh
-$ pip install -r requirements.txt
+$ pip3 install -r requirements.txt
 ```
 
 ### Makefile  
@@ -121,15 +130,15 @@ $ make docker-run
 
 API get price USD
 ```sh
-$ curl -H "Content-Type: application/x-www-form-urlencoded" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJhcmZpYW4iLCJwaG9uZSI6IjEyMzQ1Njc4Iiwicm9sZSI6ImFkbWluIiwidGltZXN0YW1wIjoiU3VuZGF5LCAwNC1BcHItMjEgMDI6MjM6NTAgVVRDIiwidXNlcm5hbWUiOiJhcmZpYW4ifSwiZXhwIjoxNjE3NzYyMzE4fQ.qV1tkmnj_-QK3ZrWWHdMbXihq-eTtIYPHiIGFtQvckA" -X GET localhost:2002/fetch/getprice
+$ curl -H "Content-Type: application/x-www-form-urlencoded" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJhcmZpYW4iLCJwaG9uZSI6IjEyMzQ1Njc4Iiwicm9sZSI6ImFkbWluIiwidGltZXN0YW1wIjoiU3VuZGF5LCAwNC1BcHItMjEgMDI6MjM6NTAgVVRDIiwidXNlcm5hbWUiOiJhcmZpYW4ifSwiZXhwIjoxNjE3NzYyMzE4fQ.qV1tkmnj_-QK3ZrWWHdMbXihq-eTtIYPHiIGFtQvckA" -X GET 103.56.207.67:2002/fetch/getprice
 ```
 
 API Aggregate data
 ```sh
-$ curl -H "Content-Type: application/x-www-form-urlencoded" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJhcmZpYW4iLCJwaG9uZSI6IjEyMzQ1Njc4Iiwicm9sZSI6ImFkbWluIiwidGltZXN0YW1wIjoiU3VuZGF5LCAwNC1BcHItMjEgMDI6MjM6NTAgVVRDIiwidXNlcm5hbWUiOiJhcmZpYW4ifSwiZXhwIjoxNjE3NzYyMzE4fQ.qV1tkmnj_-QK3ZrWWHdMbXihq-eTtIYPHiIGFtQvckA" -X GET localhost:2002/fetch/getaggregate
+$ curl -H "Content-Type: application/x-www-form-urlencoded" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJhcmZpYW4iLCJwaG9uZSI6IjEyMzQ1Njc4Iiwicm9sZSI6ImFkbWluIiwidGltZXN0YW1wIjoiU3VuZGF5LCAwNC1BcHItMjEgMDI6MjM6NTAgVVRDIiwidXNlcm5hbWUiOiJhcmZpYW4ifSwiZXhwIjoxNjE3NzYyMzE4fQ.qV1tkmnj_-QK3ZrWWHdMbXihq-eTtIYPHiIGFtQvckA" -X GET 103.56.207.67:2002/fetch/getaggregate
 ```
 
 API check jwt
 ```sh
-$ curl -H "Content-Type: application/x-www-form-urlencoded" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJhcmZpYW4iLCJwaG9uZSI6IjEyMzQ1Njc4Iiwicm9sZSI6ImFkbWluIiwidGltZXN0YW1wIjoiU3VuZGF5LCAwNC1BcHItMjEgMDI6MjM6NTAgVVRDIiwidXNlcm5hbWUiOiJhcmZpYW4ifSwiZXhwIjoxNjE3NzYyMzE4fQ.qV1tkmnj_-QK3ZrWWHdMbXihq-eTtIYPHiIGFtQvckA" -X GET localhost:2002/fetch/checkjwt
+$ curl -H "Content-Type: application/x-www-form-urlencoded" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJhcmZpYW4iLCJwaG9uZSI6IjEyMzQ1Njc4Iiwicm9sZSI6ImFkbWluIiwidGltZXN0YW1wIjoiU3VuZGF5LCAwNC1BcHItMjEgMDI6MjM6NTAgVVRDIiwidXNlcm5hbWUiOiJhcmZpYW4ifSwiZXhwIjoxNjE3NzYyMzE4fQ.qV1tkmnj_-QK3ZrWWHdMbXihq-eTtIYPHiIGFtQvckA" -X GET 103.56.207.67:2002/fetch/checkjwt
 ```
