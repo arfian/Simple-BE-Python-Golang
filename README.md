@@ -1,4 +1,4 @@
-# efishery-task
+# Simple BE Python & Golang
 
 # Requirement
 
